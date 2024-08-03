@@ -1,19 +1,20 @@
 const Hello = (props) => {
-  console.log(props.name)
+  const bornYear = () => {
+    const yearNow = new Date().getFullYear()
+    return yearNow - props.age
+  }
   return (
     <div>
-      <p>Hello {props.name}!</p>
-      <p>You are {props.age} years old.</p>
+      <p>Hello {props.name}, you are {props.age} years old</p>
+      <p>So you were probably born {bornYear()}</p>
     </div>
   )
 }
 
 const Goodbye = () => {
-  const day = new Date()
-  console.log(day.toString())
   return (
     <div>
-      <p>Goodbye, see you on {day.toString()}!</p>
+      <p>Goodbye, see you!</p>
     </div>
   )
 }
@@ -23,8 +24,8 @@ const App = () => {
   return (
     <>
       <h1>Greetings</h1>
-      <Hello name="Venla" age={23}/>
-      <Hello name="Vanhala" age={age1}/>
+      <Hello name="Lisa" age={23}/>
+      <Hello name="Pekka" age={age1}/>
       <Goodbye />
     </>
   )
